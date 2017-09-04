@@ -30,20 +30,20 @@ var rw = (function () {
         // update distance
         this.d.d = _.d(0, 0, obj.x + obj.w / 2, obj.y + obj.w / 2);
 
-        per = (this.d.d - 1000) / 10000;
-        if (per < 0) {
-            per = 0;
+        this.d.hellPer = (this.d.d - this.d.safeDist) / this.d.hellDist;
+        if (this.d.hellPer < 0) {
+            this.d.hellPer = 0;
         }
-        if (per > 1) {
-            per = 1;
+        if (this.d.hellPer > 1) {
+            this.d.hellPer = 1;
         }
-        this.d.spawnPer = per;
+        //this.d.spawnPer = this.d.hellPer;
 
         if (new Date() - this.d.lastSpawn >= this.d.spawnRate) {
 
             roll = _.r();
 
-            if (roll < this.d.spawnPer) {
+            if (roll < this.d.hellPer) {
 
                 this.es.addShip({
 
@@ -98,7 +98,9 @@ var rw = (function () {
 
         d : {
 
-            spawnRate : 3000,
+            safeDist : 1000, // safe distance
+            hellDist : 30000, // the distance at witch the game is at max difficulty
+            spawnRate : 30000, // how often an enemy spawn might happen
             lastSpawn : new Date()
 
         }, // the current distance data
