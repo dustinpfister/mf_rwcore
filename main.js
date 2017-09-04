@@ -91,25 +91,25 @@ var draw = function () {
             obj.f = '#af0000';
             //C.drawInfo([obj.a], 50, 20);
             C.dBX(obj);
-/*
+            /*
             C.drawInfo(
-                [
+            [
 
-                    'id: ' + ship.id,
-                    'hp:' + ship.hp,
-                    'a: ' + ship.a,
-                    //'target: ' + (ship.target ? ship.target : false)
-                    'dtt: ' + Math.floor(ship.dtt),
-                    'adt: ' + ship.adt.toFixed(2),
-                    'aDir: ' + ship.aDir,
-                    'turnPer: ' + ship.turnPer.toFixed(2),
-                    'maxTurn: ' + ship.maxTurn.toFixed(2),
-                    'aDelta: ' + ship.aDelta.toFixed(2)
+            'id: ' + ship.id,
+            'hp:' + ship.hp,
+            'a: ' + ship.a,
+            //'target: ' + (ship.target ? ship.target : false)
+            'dtt: ' + Math.floor(ship.dtt),
+            'adt: ' + ship.adt.toFixed(2),
+            'aDir: ' + ship.aDir,
+            'turnPer: ' + ship.turnPer.toFixed(2),
+            'maxTurn: ' + ship.maxTurn.toFixed(2),
+            'aDelta: ' + ship.aDelta.toFixed(2)
 
-                ],
+            ],
 
-                obj.x, obj.y, 12, '12px courier', '#ff8888');
-				*/
+            obj.x, obj.y, 12, '12px courier', '#ff8888');
+             */
 
         });
 
@@ -133,9 +133,9 @@ var draw = function () {
     C.drawInfo([
 
             'D : ' + rw.d.d.toFixed(2),
-			'hellDist: ' + rw.d.hellDist,
+            'hellDist: ' + rw.d.hellDist,
             'hellPer: ' + rw.d.hellPer,
-            'nextSpawn: ' + (rw.d.spawnRate -(new Date()-rw.d.lastSpawn)),
+            'nextSpawn: ' + (rw.d.spawnRate - (new Date() - rw.d.lastSpawn)),
             'spawnRate: ' + rw.d.spawnRate
 
         ], 10, 20);

@@ -98,7 +98,14 @@ var rw = (function () {
 
     var Planet = function (obj) {
 
+        obj = obj || {};
+
         Unit.call(this, obj);
+
+        this.w = 128;
+        this.h = 128;
+        this.hw = 64;
+        this.hh = 64;
 
     };
 
@@ -147,16 +154,27 @@ var rw = (function () {
             });
 
             var sec = S.getPos(-32, -32);
+
+            // home world
+            sec.pl.push(new Planet({
+
+                    x : -64,
+                    y : -64
+
+                }));
+
+            /*
             sec.pl.push({
 
-                x : -32,
-                y : -32,
-                w : 64,
-                h : 64,
-                id : 'home',
-                po : false
+            x : -32,
+            y : -32,
+            w : 64,
+            h : 64,
+            id : 'home',
+            po : false
 
             });
+             */
 
             // the New Player Ship Collection that will replace playerObj, and pShots
             this.ps = new ShipCollection({
