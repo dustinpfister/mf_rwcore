@@ -25,26 +25,36 @@ var rw = (function () {
     var distTick = function (obj) {
 
         var roll,
+        d = this.d,
         per;
 
         // update distance
-        this.d.d = _.d(0, 0, obj.x + obj.w / 2, obj.y + obj.w / 2);
+        d.d = _.d(0, 0, obj.x + obj.w / 2, obj.y + obj.w / 2);
 
-        this.d.hellPer = (this.d.d - this.d.safeDist) / this.d.hellDist;
-        if (this.d.hellPer < 0) {
-            this.d.hellPer = 0;
+        // find hell percent
+        d.hellPer = (d.d - d.safeDist) / d.hellDist;
+
+        // hell percent rules
+        if (d.hellPer < 0) {
+            d.hellPer = 0;
         }
-        if (this.d.hellPer > 1) {
-            this.d.hellPer = 1;
+        if (d.hellPer > 1) {
+            d.hellPer = 1;
         }
-        //this.d.spawnPer = this.d.hellPer;
 
-        if (new Date() - this.d.lastSpawn >= this.d.spawnRate) {
+        // spawn rate effected by hell percent
+        d.spawnRate = Math.floor(30000 - 30000 * d.hellPer);
 
+        // spawn?
+        if (new Date() - d.lastSpawn >= d.spawnRate) {
+
+            // spawn roll
             roll = _.r();
 
-            if (roll < this.d.hellPer) {
+            // if roll is less than hell percent
+            if (roll < d.hellPer) {
 
+                // spawn an enemy
                 this.es.addShip({
 
                     x : this.ps.units[0].x + 200,
@@ -98,8 +108,8 @@ var rw = (function () {
 
         d : {
 
-            safeDist : 1000, // safe distance
-            hellDist : 30000, // the distance at witch the game is at max difficulty
+            safeDist : 500, // safe distance
+            hellDist : 1000, // the distance at witch the game is at max difficulty
             spawnRate : 30000, // how often an enemy spawn might happen
             lastSpawn : new Date()
 
