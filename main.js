@@ -133,6 +133,7 @@ var draw = function () {
     C.drawInfo([
 
             'D : ' + rw.d.d.toFixed(2),
+			'hellDist: ' + rw.d.hellDist,
             'hellPer: ' + rw.d.hellPer,
             'nextSpawn: ' + (rw.d.spawnRate -(new Date()-rw.d.lastSpawn)),
             'spawnRate: ' + rw.d.spawnRate

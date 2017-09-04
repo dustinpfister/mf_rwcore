@@ -108,8 +108,8 @@ var rw = (function () {
 
         d : {
 
-            safeDist : 500, // safe distance
-            hellDist : 1000, // the distance at witch the game is at max difficulty
+            safeDist : 1000, // safe distance
+            hellDist : 50000, // the distance at witch the game is at max difficulty
             spawnRate : 30000, // how often an enemy spawn might happen
             lastSpawn : new Date()
 
@@ -135,6 +135,9 @@ var rw = (function () {
             // sections
             S.set(1280, 960, 20, 20);
             S.ls(vp.x, vp.y, vp.w, vp.h);
+
+            // set hell dist based on sections
+            this.d.hellDist = S.sw + S.sh / 2 * 20;
 
             // pl array for each section
             S.secs.forEach(function (sec) {
