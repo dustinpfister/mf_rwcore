@@ -24,18 +24,26 @@ var rw = (function () {
     // update all things distance.
     var distTick = function (obj) {
 
+        var roll;
+
         // update distance
         this.d.d = _.d(0, 0, obj.x + obj.w / 2, obj.y + obj.w / 2);
 
-        this.d.spawnPer = 0;
+        this.d.spawnPer = .5;
 
         if (new Date() - this.d.lastSpawn >= this.d.spawnRate) {
 
-            this.es.addShip({
+            roll = _.r();
 
-                x : 200
+            if (roll < this.d.spawnPer) {
 
-            });
+                this.es.addShip({
+
+                    x : 200
+
+                });
+
+            }
 
             this.d.lastSpawn = new Date();
 
