@@ -248,13 +248,13 @@ var rw = (function () {
 
             if (kc.keys[49]) {
 
-                ps.ai = true;
+                this.ps.ai = true;
 
             }
 
             if (kc.keys[50]) {
 
-                ps.ai = false;
+                this.ps.ai = false;
 
             }
 
