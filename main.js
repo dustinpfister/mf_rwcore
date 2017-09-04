@@ -91,7 +91,7 @@ var draw = function () {
             obj.f = '#af0000';
             //C.drawInfo([obj.a], 50, 20);
             C.dBX(obj);
-
+/*
             C.drawInfo(
                 [
 
@@ -109,6 +109,7 @@ var draw = function () {
                 ],
 
                 obj.x, obj.y, 12, '12px courier', '#ff8888');
+				*/
 
         });
 

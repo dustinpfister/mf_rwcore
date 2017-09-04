@@ -24,12 +24,20 @@ var rw = (function () {
     // update all things distance.
     var distTick = function (obj) {
 
-        var roll;
+        var roll,
+        per;
 
         // update distance
         this.d.d = _.d(0, 0, obj.x + obj.w / 2, obj.y + obj.w / 2);
 
-        this.d.spawnPer = .5;
+        per = (this.d.d - 1000) / 10000;
+        if (per < 0) {
+            per = 0;
+        }
+        if (per > 1) {
+            per = 1;
+        }
+        this.d.spawnPer = per;
 
         if (new Date() - this.d.lastSpawn >= this.d.spawnRate) {
 
@@ -39,7 +47,8 @@ var rw = (function () {
 
                 this.es.addShip({
 
-                    x : 200
+                    x : this.ps.units[0].x + 200,
+                    y : this.ps.units[0].y
 
                 });
 
