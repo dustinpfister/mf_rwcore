@@ -70,6 +70,38 @@ var rw = (function () {
 
     };
 
+    // make a planet ring at distance with count planets
+    var makeRing = function (d, c) {
+
+        var sec,
+        x,
+        y,
+        r,
+        i = 0;
+
+        d = d || 1000;
+        c = c || 10;
+        while (i < c) {
+
+            r = _.tau / c * i;
+            x = Math.cos(r) * d - 64;
+            y = Math.sin(r) * d-64;
+
+            sec = S.getPos(x, y);
+
+            // home world
+            sec.pl.push(new Planet({
+
+                    x : x,
+                    y : y
+
+                }));
+
+            i += 1;
+        }
+
+    };
+
     var onPl = function (sec, obj) {
 
         var i;
@@ -162,6 +194,8 @@ var rw = (function () {
                     y : -64
 
                 }));
+				
+			makeRing(this.d.safeDist,20);
 
             /*
             sec.pl.push({
