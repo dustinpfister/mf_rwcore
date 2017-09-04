@@ -36,7 +36,11 @@ var draw = function () {
                     pl = vp.makeVPRel(pl);
 
                     ctx.strokeStyle = '#00ffff';
+                    ctx.fillStyle = '#0088ff';
                     ctx.strokeRect(pl.x, pl.y, pl.w, pl.h);
+                    ctx.fillRect(pl.x, pl.y, pl.w, pl.h);
+
+                    //C.dBX(pl);
 
                 });
 

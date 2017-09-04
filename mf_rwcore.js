@@ -138,6 +138,8 @@ var rw = (function () {
         this.h = 128;
         this.hw = 64;
         this.hh = 64;
+		
+		this.f = '#00ffaf';
 
     };
 
