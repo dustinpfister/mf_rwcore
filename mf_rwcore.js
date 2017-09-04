@@ -85,7 +85,7 @@ var rw = (function () {
 
             r = _.tau / c * i;
             x = Math.cos(r) * d - 64;
-            y = Math.sin(r) * d-64;
+            y = Math.sin(r) * d - 64;
 
             sec = S.getPos(x, y);
 
@@ -138,8 +138,8 @@ var rw = (function () {
         this.h = 128;
         this.hw = 64;
         this.hh = 64;
-		
-		this.f = '#00ffaf';
+
+        this.f = '#00ffaf';
 
     };
 
@@ -178,7 +178,7 @@ var rw = (function () {
             S.ls(vp.x, vp.y, vp.w, vp.h);
 
             // set hell dist based on sections
-            this.d.hellDist = S.sw + S.sh / 2 * 20;
+            this.d.hellDist = S.H / 2 * S.sh; //S.sw + S.sh / 2 * 20;
 
             // pl array for each section
             S.secs.forEach(function (sec) {
@@ -196,8 +196,12 @@ var rw = (function () {
                     y : -64
 
                 }));
-				
-			makeRing(this.d.safeDist,20);
+
+            // inner ring
+            makeRing(this.d.safeDist, 20);
+
+            // outer ring
+            makeRing(9000, 250);
 
             /*
             sec.pl.push({
