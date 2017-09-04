@@ -129,7 +129,14 @@ var draw = function () {
 
     });
 
-    C.drawInfo(['D : ' + rw.d.d.toFixed(2)], 10, 20);
+    C.drawInfo([
+
+            'D : ' + rw.d.d.toFixed(2),
+            'spawnPer: ' + rw.d.spawnPer,
+            'nextSpawn: ' + (rw.d.spawnRate -(new Date()-rw.d.lastSpawn)),
+            'spawnRate: ' + rw.d.spawnRate
+
+        ], 10, 20);
 
     //C.drawInfo([currentPl.id || '']);
 

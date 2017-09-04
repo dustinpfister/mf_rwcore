@@ -27,6 +27,20 @@ var rw = (function () {
         // update distance
         this.d.d = _.d(0, 0, obj.x + obj.w / 2, obj.y + obj.w / 2);
 
+        this.d.spawnPer = 0;
+
+        if (new Date() - this.d.lastSpawn >= this.d.spawnRate) {
+
+            this.es.addShip({
+
+                x : 200
+
+            });
+
+            this.d.lastSpawn = new Date();
+
+        }
+
     };
 
     var onPl = function (sec, obj) {
@@ -65,7 +79,12 @@ var rw = (function () {
 
     api = {
 
-        d : {}, // the current distance data
+        d : {
+
+            spawnRate : 3000,
+            lastSpawn : new Date()
+
+        }, // the current distance data
         ps : {},
         es : {},
         cp : {}, // current planet
@@ -129,11 +148,11 @@ var rw = (function () {
             this.es.enemys = this.ps;
 
             // add enemy ship
-            this.es.addShip({
+            //this.es.addShip({
 
-                x : 200
+            //    x : 200
 
-            });
+            //});
 
             _.l(this.ps)
 
