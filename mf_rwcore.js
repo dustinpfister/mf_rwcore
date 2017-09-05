@@ -165,9 +165,9 @@ var rw = (function () {
             _.l('rw-core: init...');
 
             // view port
-            vp.nw = 640;
-            vp.nh = 480;
-            vp.zoom(1);
+            vp.w = 640;
+            vp.h = 480;
+            //vp.zoom(1);
 
             // canvas
             C.canvas.width = 640;
