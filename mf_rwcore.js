@@ -273,7 +273,7 @@ var rw = (function () {
                 obj.step();
             }
 
-            vp.lookAt(x, y);
+            //vp.lookAt(x, y);
 
             vp.x = obj.x - vp.w / 2;
             vp.y = obj.y - vp.h / 2;
