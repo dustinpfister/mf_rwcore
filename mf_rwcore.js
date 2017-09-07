@@ -43,7 +43,7 @@ var rw = (function () {
         }
 
         // spawn rate effected by hell percent
-        d.spawnRate = Math.floor(15000 - 15000 * d.hellPer);
+        d.spawnRate = Math.floor(10000 - 9000 * d.hellPer);
 
         // spawn?
         if (new Date() - d.lastSpawn >= d.spawnRate) {
@@ -151,8 +151,8 @@ var rw = (function () {
         d : {
 
             safeDist : 1000, // safe distance
-            hellDist : 10000, // the distance at witch the game is at max difficulty
-            spawnRate : 15000, // how often an enemy spawn might happen
+            hellDist : 3000, // the distance at witch the game is at max difficulty
+            spawnRate : 10000, // how often an enemy spawn might happen
             lastSpawn : new Date()
 
         }, // the current distance data
@@ -167,7 +167,6 @@ var rw = (function () {
             // view port
             vp.w = 640;
             vp.h = 480;
-            //vp.zoom(1);
 
             // canvas
             C.canvas.width = 640;
@@ -204,18 +203,6 @@ var rw = (function () {
             // outer ring
             makeRing(9000, 250);
 
-            /*
-            sec.pl.push({
-
-            x : -32,
-            y : -32,
-            w : 64,
-            h : 64,
-            id : 'home',
-            po : false
-
-            });
-             */
 
             // the New Player Ship Collection that will replace playerObj, and pShots
             this.ps = new ShipCollection({
@@ -238,15 +225,6 @@ var rw = (function () {
             this.ps.enemys = this.es;
             this.es.enemys = this.ps;
 
-            // add enemy ship
-            //this.es.addShip({
-
-            //    x : 200
-
-            //});
-
-            //_.l(this.ps)
-
         },
 
         tick : function () {
@@ -257,9 +235,9 @@ var rw = (function () {
             if (obj === undefined) {
 
                 _.l('player dead');
-				
-            // add the single player ship
-            this.ps.addShip();
+
+                // add the single player ship
+                this.ps.addShip();
 
             } else {
 
