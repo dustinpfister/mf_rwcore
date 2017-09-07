@@ -147,6 +147,7 @@ var draw = function () {
     C.drawInfo([
 
             'D : ' + rw.d.d.toFixed(2),
+			'player hp: ' + rw.ps.units[0].hp + '/' +rw.ps.units[0].maxHP,
             'hellDist: ' + rw.d.hellDist,
             'hellPer: ' + rw.d.hellPer,
             'nextSpawn: ' + (rw.d.spawnRate - (new Date() - rw.d.lastSpawn)),
