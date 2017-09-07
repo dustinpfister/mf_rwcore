@@ -59,7 +59,8 @@ var rw = (function () {
 
                     x : this.ps.units[0].x + 200,
                     y : this.ps.units[0].y,
-                    delta : Math.floor(3.5 * d.hellPer + .5)
+                    delta : Math.floor(3.5 * d.hellPer + .5),
+                    fireRate : 1000
 
                 });
 
@@ -202,7 +203,6 @@ var rw = (function () {
 
             // outer ring
             makeRing(9000, 250);
-
 
             // the New Player Ship Collection that will replace playerObj, and pShots
             this.ps = new ShipCollection({
