@@ -245,7 +245,7 @@ var rw = (function () {
 
             //});
 
-            _.l(this.ps)
+            //_.l(this.ps)
 
         },
 
