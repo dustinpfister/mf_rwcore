@@ -257,6 +257,9 @@ var rw = (function () {
             if (obj === undefined) {
 
                 _.l('player dead');
+				
+            // add the single player ship
+            this.ps.addShip();
 
             } else {
 
