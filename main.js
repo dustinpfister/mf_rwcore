@@ -144,10 +144,13 @@ var draw = function () {
 
     });
 
+	
+	var obj = rw.ps.units[0];
+	if(obj === undefined){ obj = {}}
     C.drawInfo([
 
             'D : ' + rw.d.d.toFixed(2),
-			'player hp: ' + rw.ps.units[0].hp + '/' +rw.ps.units[0].maxHP,
+			'player hp: ' + obj.hp + '/' +obj.maxHP,
             'hellDist: ' + rw.d.hellDist,
             'hellPer: ' + rw.d.hellPer,
             'nextSpawn: ' + (rw.d.spawnRate - (new Date() - rw.d.lastSpawn)),

@@ -254,63 +254,71 @@ var rw = (function () {
             // player object
             var obj = this.ps.units[0];
 
-            distTick.call(this, obj);
+            if (obj === undefined) {
 
-            var d = kc.d();
+                _.l('player dead');
 
-            if (d >= 0) {
+            } else {
 
-                // new _.asd method works great
-                if (_.asd(obj.a, d) == -1) {
+                distTick.call(this, obj);
 
-                    obj.a -= Math.PI / 100;
+                var d = kc.d();
 
-                } else {
+                if (d >= 0) {
 
-                    obj.a += Math.PI / 100;
+                    // new _.asd method works great
+                    if (_.asd(obj.a, d) == -1) {
+
+                        obj.a -= Math.PI / 100;
+
+                    } else {
+
+                        obj.a += Math.PI / 100;
+                    }
+
+                    obj.step();
                 }
 
-                obj.step();
+                //vp.lookAt(x, y);
+
+                vp.x = obj.x - vp.w / 2;
+                vp.y = obj.y - vp.h / 2;
+
+                S.ls(vp.x, vp.y, vp.w, vp.h);
+
+                // fire shots
+                if (kc.keys[186]) {
+
+                    obj.shoot();
+
+                }
+
+                if (kc.keys[49]) {
+
+                    this.ps.ai = true;
+
+                }
+
+                if (kc.keys[50]) {
+
+                    this.ps.ai = false;
+
+                }
+
+                // get planet
+                var pl = onPl(S.getPos(obj.x, obj.y), obj);
+
+                this.cp = {};
+                if (pl) {
+
+                    this.cp = pl;
+
+                }
+
+                this.ps.update();
+                this.es.update();
+
             }
-
-            //vp.lookAt(x, y);
-
-            vp.x = obj.x - vp.w / 2;
-            vp.y = obj.y - vp.h / 2;
-
-            S.ls(vp.x, vp.y, vp.w, vp.h);
-
-            // fire shots
-            if (kc.keys[186]) {
-
-                obj.shoot();
-
-            }
-
-            if (kc.keys[49]) {
-
-                this.ps.ai = true;
-
-            }
-
-            if (kc.keys[50]) {
-
-                this.ps.ai = false;
-
-            }
-
-            // get planet
-            var pl = onPl(S.getPos(obj.x, obj.y), obj);
-
-            this.cp = {};
-            if (pl) {
-
-                this.cp = pl;
-
-            }
-
-            this.ps.update();
-            this.es.update();
 
         }
 
