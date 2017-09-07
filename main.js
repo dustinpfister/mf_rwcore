@@ -132,6 +132,16 @@ var draw = function () {
 
         });
 
+        // enemy shots
+        rw.es.shots.units.forEach(function (sh) {
+
+            var obj = vp.makeVPRel(sh);
+
+            ctx.fillStyle = '#af0000';
+            ctx.fillRect(obj.x, obj.y, obj.w, obj.h);
+
+        });
+
     });
 
     C.drawInfo([

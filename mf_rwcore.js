@@ -43,7 +43,7 @@ var rw = (function () {
         }
 
         // spawn rate effected by hell percent
-        d.spawnRate = Math.floor(30000 - 30000 * d.hellPer);
+        d.spawnRate = Math.floor(15000 - 15000 * d.hellPer);
 
         // spawn?
         if (new Date() - d.lastSpawn >= d.spawnRate) {
@@ -151,8 +151,8 @@ var rw = (function () {
         d : {
 
             safeDist : 1000, // safe distance
-            hellDist : 50000, // the distance at witch the game is at max difficulty
-            spawnRate : 30000, // how often an enemy spawn might happen
+            hellDist : 10000, // the distance at witch the game is at max difficulty
+            spawnRate : 15000, // how often an enemy spawn might happen
             lastSpawn : new Date()
 
         }, // the current distance data
